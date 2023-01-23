@@ -1,0 +1,27 @@
+
+<%# taking heading of the file form header.ejs using ejs tags -->(go: ejs docs tag ) %>
+<%- include('header') -%>
+
+
+<div class="box">
+
+ <!-- iterating array(newitems) using forEach method of javaScript %> -->
+  <%  newItems.forEach(function(newItems){ %>
+    <form action="/delete" method="post">
+    <div class="item">
+      <input type="checkbox" name="checkbox" value=<%=newItems._id%> onchange="this.form.submit()">
+      <!-- and showing items name from newitems array in website as paragrapg -->
+    <p><%= newItems.name %></p>
+    <input type="hidden" name="listName" value="<%= kindofday %>">
+    </div>
+      </form>
+  <%   }); %>
+
+  <form class="item" action="/" method="post">
+    <input type="text" name="usersInput" placeholder="New Item" autocomplete="off">
+    <button type="submit" name="list" value="<%= kindofday %>">+</button>
+  </form>
+
+</div>
+  </body>
+</html>
